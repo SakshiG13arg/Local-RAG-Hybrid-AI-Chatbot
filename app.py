@@ -39,7 +39,11 @@ if choice == "y":
 
         from ingestion.pipeline import ingest
 
-        index, chunks, text = ingest(pdf_path)
+        result = ingest(pdf_path)
+
+        index = result["index"]
+        chunks = result["chunks"]
+        text = result["text"]
 
         if not text.strip():
 
