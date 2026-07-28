@@ -265,8 +265,6 @@ Interested in:
 - Retrieval-Augmented Generation (RAG)
 - Multi-Agent Systems
 
-GitHub: https://github.com/SakshiG13arg
-
 ---
 
 ⭐ If you found this project useful, consider giving it a star!
