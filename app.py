@@ -46,7 +46,7 @@ if choice == "y":
             print("PDF contains no readable text.")
             exit()
 
-        evaluate_chunking(text, chunks)
+        evaluate_chunking(text)
 
         print(f"\nTotal Chunks: {len(chunks)}")
 
