@@ -1,6 +1,6 @@
-from chunking.recursive import recursive_chunking
-from chunking.fixed import fixed_chunking
-from chunking.semantic import semantic_chunking
+from chunking.recursive_chunker import recursive_chunking
+from chunking.fixed_chunker import fixed_chunking
+from chunking.semantic_chunker import semantic_chunking
 
 
 def chunk_document(
