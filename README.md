@@ -49,6 +49,7 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   ├── answer.py
 │   ├── critic.py
 │   └── agent_loop.py
+│   └── legacy.py
 │
 ├── api/
 │   └── api.py
@@ -71,7 +72,7 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   └── retrieval_eval.py
 │
 ├── harness/
-│   ├── pipeline.py
+│   ├── pipeline_harness.py
 │   ├── state.py
 │   ├── budget.py
 │   ├── gates.py
@@ -90,6 +91,8 @@ Local-RAG-Hybrid-AI-Chatbot/
 │
 ├── models/
 │   └── planner_model.py
+│   └── answer_model.py
+│   └── critic_model.py
 │
 ├── prompts/
 │   ├── planner.md
@@ -111,7 +114,6 @@ Local-RAG-Hybrid-AI-Chatbot/
 ├── utils/
 │   ├── embeddings.py
 │   ├── memory.py
-│   ├── memory_router.py
 │   ├── model_router.py
 │   ├── prompts.py
 │   ├── tools.py
