@@ -1,6 +1,7 @@
 import os
 import faiss
 import pickle
+import numpy as np
 
 
 INDEX_PATH = "storage/faiss.index"
@@ -9,7 +10,12 @@ META_PATH = "storage/metadata.pkl"
 
 def create_vector_store(embeddings):
 
-    dimension = len(embeddings[0])
+    embeddings = np.array(
+        embeddings,
+        dtype="float32"
+    )
+
+    dimension = embeddings.shape[1]
 
     index = faiss.IndexFlatL2(
         dimension
