@@ -1,5 +1,5 @@
 from evaluation.chunking_eval import evaluate_chunking
-from utils.bm25 import build_bm25
+from retrieval.bm25 import build_bm25
 
 from utils.memory import (
     add_to_history,
