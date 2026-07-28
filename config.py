@@ -66,3 +66,24 @@ AGENT_MODES = [
     "legacy",
     "multi_agent"
 ]
+
+CHUNKING_METHODS = [
+    "fixed",
+    "recursive",
+    "semantic"
+]
+
+
+TOP_K = 3
+
+
+EVAL_QUESTIONS = [
+    {
+        "question": "What is RAG?",
+        "expected_keyword": "retrieval"
+    },
+    {
+        "question": "What is Qdrant?",
+        "expected_keyword": "vector"
+    }
+]
