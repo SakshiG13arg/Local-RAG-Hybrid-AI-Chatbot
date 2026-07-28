@@ -6,7 +6,7 @@ from utils.memory import (
     get_history,
     clear_history
 )
-from harness.pipeline import run_pipeline
+from harness.pipeline_harness import run_pipeline
 
 print("=" * 50)
 print("Hybrid AI Tutor Chatbot")
