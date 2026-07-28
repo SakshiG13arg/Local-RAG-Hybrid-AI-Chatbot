@@ -19,6 +19,8 @@ The chatbot can answer questions from uploaded PDF documents as well as general 
 - 🎯 Cross-Encoder Reranking
 - 📊 Multiple Chunking Strategies
 - 🌍 FastAPI REST API
+- 📈 Chunking Evaluation
+- 📊 Retrieval Evaluation
 
 ---
 
@@ -48,7 +50,7 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   ├── retriever.py
 │   ├── answer.py
 │   ├── critic.py
-│   └── agent_loop.py
+│   ├── agent_loop.py
 │   └── legacy.py
 │
 ├── api/
@@ -90,8 +92,8 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   └── history.py
 │
 ├── models/
-│   └── planner_model.py
-│   └── answer_model.py
+│   ├── planner_model.py
+│   ├── answer_model.py
 │   └── critic_model.py
 │
 ├── prompts/
@@ -142,7 +144,7 @@ Clean Text
 Chunking
    │
    ▼
-Embeddings
+Ollama Embeddings
    │
    ▼
 FAISS Vector Store
