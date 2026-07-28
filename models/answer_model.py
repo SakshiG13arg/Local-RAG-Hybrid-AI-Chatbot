@@ -1,9 +1,9 @@
 from utils.model_router import call_model
 
 
-from config import ANSWER_MODEL
+from config import DEFAULT_MODEL
 
-MODEL = ANSWER_MODEL
+MODEL = DEFAULT_MODEL
 
 
 def generate_answer(
@@ -14,6 +14,6 @@ def generate_answer(
     """
 
     return call_model(
-    "qwen2.5:3b",
+    "DEFAULT_MODEL",
     prompt
 )
