@@ -38,10 +38,10 @@ The chatbot can answer questions from uploaded PDF documents as well as general 
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
-```
-AI Chatbot/
+```text
+Local-RAG-Hybrid-AI-Chatbot/
 │
 ├── agents/
 │   ├── planner.py
@@ -59,13 +59,48 @@ AI Chatbot/
 │   ├── semantic.py
 │   └── router.py
 │
+├── data/
+│   ├── *.pdf
+│   ├── MULTI_AGENT.md
+│   └── AGENT_LOOP.md
+│
+├── evaluation/
+│   ├── answer.py
+│   ├── benchmark.py
+│   ├── chunking_eval.py
+│   └── retrieval_eval.py
+│
+├── harness/
+│   ├── pipeline.py
+│   ├── state.py
+│   ├── budget.py
+│   ├── gates.py
+│   ├── logger.py
+│   └── metrics.py
+│
 ├── ingestion/
 │   ├── loader.py
 │   ├── cleaner.py
 │   ├── chunker.py
 │   ├── embedder.py
-│   ├── pipeline.py
-│   └── vector_store.py
+│   └── pipeline.py
+│
+├── memory/
+│   └── history.py
+│
+├── models/
+│   └── planner_model.py
+│
+├── prompts/
+│   ├── planner.md
+│   ├── retriever.md
+│   ├── answer.md
+│   └── critic.md
+│
+├── reranking/
+│   ├── cross_encoder.py
+│   ├── mmr.py
+│   └── router.py
 │
 ├── retrieval/
 │   ├── bm25.py
@@ -73,16 +108,24 @@ AI Chatbot/
 │   ├── hybrid.py
 │   └── reranker.py
 │
-├── memory/
-│
-├── prompts/
-│
-├── harness/
-│
 ├── utils/
+│   ├── embeddings.py
+│   ├── memory.py
+│   ├── memory_router.py
+│   ├── model_router.py
+│   ├── prompts.py
+│   ├── tools.py
+│   ├── vector_store.py
+│   └── web_search.py
 │
 ├── app.py
-└── config.py
+├── config.py
+├── requirements.txt
+├── README.md
+├── .env
+├── .env.example
+├── .gitignore
+└── LICENSE
 ```
 
 ---
