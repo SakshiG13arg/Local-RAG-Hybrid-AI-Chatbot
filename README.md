@@ -1,59 +1,46 @@
 # Local-RAG-Hybrid-AI-Chatbot
-Hybrid AI Tutor Chatbot
+# 🤖 Hybrid AI Tutor Chatbot
 
-A local-first AI Tutor Chatbot built using Ollama, FAISS, Hybrid Retrieval (FAISS + BM25), Multi-Agent AI, and FastAPI. The chatbot can answer questions from PDF documents as well as the web using a modular retrieval pipeline.
+A **Local AI Tutor Chatbot** built using **Retrieval-Augmented Generation (RAG)**, **Hybrid Search**, and a **Multi-Agent AI Pipeline**.
 
-Features
-📄 PDF Question Answering (RAG)
-🤖 Multi-Agent Architecture
-Planner Agent
-Retriever Agent
-Answer Generator
-Critic Agent
-🔍 Hybrid Retrieval
-Dense Search (FAISS)
-Sparse Search (BM25)
-📊 Cross-Encoder Reranking
-🌐 Web Search Fallback (DuckDuckGo)
-🧠 Conversation Memory
-⚙ Multiple Chunking Strategies
-Fixed Chunking
-Recursive Chunking
-Semantic Chunking
-🚀 FastAPI REST API
-📝 Modular Prompt Templates
-💻 Fully Local using Ollama (No Paid APIs)
-Project Architecture
-                User Question
-                      │
-                      ▼
-              Planner Agent
-                      │
-          ┌───────────┴───────────┐
-          │                       │
-          ▼                       ▼
-     PDF Retrieval          Web Search
-     (FAISS + BM25)       (DuckDuckGo)
-          │                       │
-          └───────────┬───────────┘
-                      ▼
-                Hybrid Context
-                      │
-                      ▼
-              Cross Encoder
-                 Reranker
-                      │
-                      ▼
-             Answer Generator
-                      │
-                      ▼
-               Critic Agent
-                      │
-          Good? ──────┴────── No
-             │                │
-             ▼                │
-      Return Answer      Next Iteration
-Project Structure
+The chatbot can answer questions from uploaded PDF documents as well as general knowledge using web search when required. It runs completely on local models using **Ollama**, making it privacy-friendly and cost-effective.
+
+---
+
+# 🚀 Features
+
+- 📄 PDF-based Question Answering
+- 🧠 Retrieval-Augmented Generation (RAG)
+- 🔍 Hybrid Search (FAISS + BM25)
+- 🌐 Automatic Web Search Fallback
+- 🤖 Multi-Agent AI Pipeline
+- 📝 Conversation Memory
+- ⚡ Local LLMs using Ollama
+- 🎯 Cross-Encoder Reranking
+- 📊 Multiple Chunking Strategies
+- 🌍 FastAPI REST API
+
+---
+
+# 🛠 Tech Stack
+
+- Python
+- Ollama
+- Llama3
+- Qwen2.5
+- nomic-embed-text
+- FAISS
+- BM25
+- FastAPI
+- pdfplumber
+- DuckDuckGo Search
+- Sentence Transformers
+
+---
+
+# 📂 Project Structure
+
+```
 AI Chatbot/
 │
 ├── agents/
@@ -75,175 +62,211 @@ AI Chatbot/
 ├── ingestion/
 │   ├── loader.py
 │   ├── cleaner.py
+│   ├── chunker.py
 │   ├── embedder.py
-│   ├── vector_store.py
-│   └── pipeline.py
+│   ├── pipeline.py
+│   └── vector_store.py
 │
 ├── retrieval/
-│   ├── hybrid.py
 │   ├── bm25.py
-│   ├── reranker.py
 │   ├── confidence.py
-│   └── ...
-│
-├── harness/
-│   ├── pipeline.py
-│   ├── state.py
-│   ├── budget.py
-│   ├── logger.py
-│   └── gates.py
+│   ├── hybrid.py
+│   └── reranker.py
 │
 ├── memory/
+│
 ├── prompts/
+│
+├── harness/
+│
 ├── utils/
+│
 ├── app.py
 └── config.py
-Technologies Used
-Technology	Purpose
-Python	Programming Language
-Ollama	Local LLM Inference
-Llama3	Answer Generation
-Qwen2.5	Planning Agent
-nomic-embed-text	Text Embeddings
-FAISS	Dense Vector Search
-BM25	Keyword Retrieval
-Cross Encoder MiniLM	Reranking
-FastAPI	REST API
-pdfplumber	PDF Text Extraction
-LangChain	Recursive Text Splitting
-DuckDuckGo Search	Web Search
-NumPy	Vector Operations
-Retrieval Pipeline
+```
+
+---
+
+# ⚙️ Pipeline
+
+```
+PDF
+   │
+   ▼
 Load PDF
-Clean extracted text
-Split text into chunks
-Generate embeddings using Ollama
-Store embeddings in FAISS
-Perform Hybrid Search
-FAISS
-BM25
-Rerank retrieved chunks
-Check retrieval confidence
-Use Web Search if confidence is low
-Generate final answer
-Multi-Agent Workflow
-Planner Agent
-
-Determines the retrieval strategy (PDF, Web, or both).
-
-Retriever Agent
-
-Fetches relevant information using Hybrid Retrieval.
-
-Answer Agent
-
-Generates the final response using retrieved context.
-
-Critic Agent
-
-Evaluates the generated answer and requests another iteration if necessary.
-
-Chunking Strategies
-
-The project supports multiple chunking techniques for experimentation and evaluation.
-
-Fixed Chunking
-Recursive Chunking (Default)
-Semantic Chunking
-
-Chunk size and overlap can be configured through the project configuration.
-
-API Endpoints
-Health Check
-GET /health
-
-Returns application status.
-
-Chat
-POST /chat
-
-Generate an answer using the Hybrid Multi-Agent pipeline.
-
-Internet Chat
-POST /chat/internet
-
-Generate answers using Internet search only.
-
-Web Search
-POST /web/search
-
-Returns raw DuckDuckGo search results.
-
-Installation
-Clone Repository
-git clone https://github.com/yourusername/hybrid-ai-chatbot.git
-
-cd hybrid-ai-chatbot
-Create Virtual Environment
-python -m venv .venv
-
-Activate
-
-Windows
-
-.venv\Scripts\activate
-
-Linux/Mac
-
-source .venv/bin/activate
-Install Dependencies
-pip install -r requirements.txt
-Install Ollama Models
-ollama pull llama3
-
-ollama pull qwen2.5:3b
-
-ollama pull nomic-embed-text
-Run the Application
-
-CLI
-
-python app.py
-
-FastAPI
-
-uvicorn api.api:app --reload
-
-Swagger Documentation
-
-http://127.0.0.1:8000/docs
-Configuration
-
-The following parameters can be configured in config.py.
-
-Chunk Size
-Chunk Overlap
-Chunking Strategy
-Retrieval Top-K
-Similarity Threshold
-Default Models
-Future Improvements
-Streaming Responses
-Persistent Conversation Memory
-Qdrant Integration
-LangGraph-based Agent Workflow
-Authentication & User Sessions
-Web Interface
-Docker Deployment
-Learning Outcomes
-
-This project demonstrates practical implementation of:
-
-Retrieval-Augmented Generation (RAG)
-Multi-Agent AI Systems
-Hybrid Search (Dense + Sparse Retrieval)
-Vector Databases
+   │
+   ▼
+Clean Text
+   │
+   ▼
+Chunking
+   │
+   ▼
 Embeddings
-Prompt Engineering
-Cross-Encoder Reranking
-FastAPI REST APIs
-Local LLM Deployment with Ollama
-Modular AI System Design
-License
+   │
+   ▼
+FAISS Vector Store
+   │
+   ▼
+User Question
+   │
+   ▼
+Planner Agent
+   │
+   ▼
+Retriever Agent
+   │
+   ├────────► FAISS
+   │
+   ├────────► BM25
+   │
+   └────────► Web Search (if needed)
+   │
+   ▼
+Reranker
+   │
+   ▼
+Answer Generator
+   │
+   ▼
+Critic Agent
+   │
+   ▼
+Final Response
+```
 
-This project is intended for educational and learning purposes. Feel free to fork, modify, and extend it for personal or academic use.
+---
+
+# 🧩 Chunking Strategies
+
+- Fixed Chunking
+- Recursive Chunking
+- Semantic Chunking
+
+The project also evaluates chunk statistics such as:
+
+- Number of chunks
+- Average chunk size
+- Total characters
+
+---
+
+# 🔍 Retrieval Pipeline
+
+The chatbot combines multiple retrieval techniques:
+
+- Dense Retrieval using FAISS
+- Sparse Retrieval using BM25
+- Hybrid Retrieval
+- Cross-Encoder Reranking
+- Confidence-Based Web Fallback
+
+---
+
+# 🤖 Multi-Agent Architecture
+
+The chatbot follows a multi-agent workflow:
+
+### Planner Agent
+Determines how the question should be answered.
+
+### Retriever Agent
+Retrieves relevant information from the knowledge base and the web.
+
+### Answer Agent
+Generates the final response using the retrieved context.
+
+### Critic Agent
+Reviews the generated answer for quality before returning it.
+
+---
+
+# 🌐 API Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `/health` | Health check |
+| `/chat` | Chat with the AI |
+| `/chat/internet` | Internet-only chat |
+| `/web/search` | Raw web search results |
+
+---
+
+# 📚 Concepts Implemented
+
+- Retrieval-Augmented Generation (RAG)
+- Hybrid Search
+- Dense Retrieval
+- Sparse Retrieval
+- BM25
+- FAISS Vector Search
+- Sentence Embeddings
+- Cross-Encoder Reranking
+- Prompt Engineering
+- Multi-Agent Systems
+- Confidence-Based Retrieval
+- Web Search Integration
+- Conversation Memory
+- FastAPI REST API
+
+---
+
+# ▶️ Running the Project
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Start Ollama
+
+```bash
+ollama serve
+```
+
+Run the chatbot
+
+```bash
+python app.py
+```
+
+Run the API
+
+```bash
+uvicorn api.api:app --reload
+```
+
+---
+
+# 📈 Future Improvements
+
+- Streaming Responses
+- Qdrant Vector Database
+- Multi-PDF Support
+- Citation Support
+- Authentication
+- Docker Deployment
+- Web Interface
+
+---
+
+# 👩‍💻 Author
+
+**Sakshi Garg**
+
+B.Tech – Electronics & Communication Engineering
+
+Interested in:
+
+- Artificial Intelligence
+- Machine Learning
+- Generative AI
+- Retrieval-Augmented Generation (RAG)
+- Multi-Agent Systems
+
+GitHub: https://github.com/SakshiG13arg
+
+---
+
+⭐ If you found this project useful, consider giving it a star!
