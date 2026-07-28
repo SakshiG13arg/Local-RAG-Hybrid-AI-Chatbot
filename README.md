@@ -99,21 +99,20 @@ AI Chatbot/
 ├── app.py
 └── config.py
 Technologies Used
-| Technology           | Purpose                  |
-| -------------------- | ------------------------ |
-| Python               | Programming Language     |
-| Ollama               | Local LLM Inference      |
-| Llama3               | Answer Generation        |
-| Qwen2.5              | Planning Agent           |
-| nomic-embed-text     | Text Embeddings          |
-| FAISS                | Dense Vector Search      |
-| BM25                 | Keyword Retrieval        |
-| Cross Encoder MiniLM | Reranking                |
-| FastAPI              | REST API                 |
-| pdfplumber           | PDF Text Extraction      |
-| LangChain            | Recursive Text Splitting |
-| DuckDuckGo Search    | Web Search               |
-| NumPy                | Vector Operations        |
+Technology	Purpose
+Python	Programming Language
+Ollama	Local LLM Inference
+Llama3	Answer Generation
+Qwen2.5	Planning Agent
+nomic-embed-text	Text Embeddings
+FAISS	Dense Vector Search
+BM25	Keyword Retrieval
+Cross Encoder MiniLM	Reranking
+FastAPI	REST API
+pdfplumber	PDF Text Extraction
+LangChain	Recursive Text Splitting
+DuckDuckGo Search	Web Search
+NumPy	Vector Operations
 Retrieval Pipeline
 Load PDF
 Clean extracted text
@@ -159,10 +158,12 @@ Health Check
 GET /health
 
 Returns application status.
+
 Chat
 POST /chat
 
 Generate an answer using the Hybrid Multi-Agent pipeline.
+
 Internet Chat
 POST /chat/internet
 
@@ -180,11 +181,15 @@ git clone https://github.com/yourusername/hybrid-ai-chatbot.git
 cd hybrid-ai-chatbot
 Create Virtual Environment
 python -m venv .venv
+
 Activate
 
 Windows
+
 .venv\Scripts\activate
+
 Linux/Mac
+
 source .venv/bin/activate
 Install Dependencies
 pip install -r requirements.txt
@@ -242,18 +247,3 @@ Modular AI System Design
 License
 
 This project is intended for educational and learning purposes. Feel free to fork, modify, and extend it for personal or academic use.
----
-
-# Author
-
-**Sakshi Garg**
-
-B.Tech (Electronics & Communication Engineering)
-
-Passionate about AI, Machine Learning, Generative AI, Retrieval-Augmented Generation (RAG), and Multi-Agent Systems.
-
-GitHub: https://github.com/SakshiG13arg
-
----
-
-⭐ Thank you for checking out this project!
