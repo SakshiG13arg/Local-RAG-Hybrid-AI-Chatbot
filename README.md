@@ -55,10 +55,10 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   └── api.py
 │
 ├── chunking/
-│   ├── fixed.py
+│   ├── fixed_chunker.py
 │   ├── recursive.py
-│   ├── semantic.py
-│   └── router.py
+│   ├── semantic_chunking.py
+│   └── router_chunking.py
 │
 ├── data/
 │   ├── *.pdf
@@ -66,8 +66,8 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   └── AGENT_LOOP.md
 │
 ├── evaluation/
-│   ├── answer.py
-│   ├── benchmark.py
+│   ├── answer_eval.py
+│   ├── benchmark_eval.py
 │   ├── chunking_eval.py
 │   └── retrieval_eval.py
 │
@@ -99,11 +99,6 @@ Local-RAG-Hybrid-AI-Chatbot/
 │   ├── retriever.md
 │   ├── answer.md
 │   └── critic.md
-│
-├── reranking/
-│   ├── cross_encoder.py
-│   ├── mmr.py
-│   └── router.py
 │
 ├── retrieval/
 │   ├── bm25.py
@@ -184,15 +179,13 @@ Final Response
 
 # 🧩 Chunking Strategies
 
+The project supports multiple chunking strategies:
+
 - Fixed Chunking
-- Recursive Chunking
+- Recursive Chunking (default)
 - Semantic Chunking
 
-The project also evaluates chunk statistics such as:
-
-- Number of chunks
-- Average chunk size
-- Total characters
+Chunking strategies are evaluated using retrieval hit-rate scoring to identify the best strategy for document retrieval.
 
 ---
 
@@ -200,11 +193,12 @@ The project also evaluates chunk statistics such as:
 
 The chatbot combines multiple retrieval techniques:
 
-- Dense Retrieval using FAISS
-- Sparse Retrieval using BM25
-- Hybrid Retrieval
-- Cross-Encoder Reranking
-- Confidence-Based Web Fallback
+- Dense Retrieval using FAISS vector search
+- Sparse Retrieval using BM25 keyword search
+- Hybrid Retrieval combining both approaches
+- Cross-Encoder Reranking for improving relevance
+- Confidence-based retrieval evaluation
+- Optional web search fallback
 
 ---
 
