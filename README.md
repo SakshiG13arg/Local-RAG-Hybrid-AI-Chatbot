@@ -121,8 +121,6 @@ Local-RAG-Hybrid-AI-Chatbot/
 ├── config.py
 ├── requirements.txt
 ├── README.md
-├── .env
-├── .env.example
 ├── .gitignore
 └── LICENSE
 ```
