@@ -1,0 +1,23 @@
+# Virtual Environment
+.venv/
+
+# Environment Variables
+.env
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# FAISS files (if you create them later)
+*.index
+*.pkl
+
+# OS Files
+.DS_Store
+Thumbs.db
